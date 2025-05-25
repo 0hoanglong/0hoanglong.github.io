@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio của Long</title>
+    <link href='https://fonts.googleapis.com' rel='preconnect' />
+    <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect' />
+    <script crossorigin='anonymous' src='https://kit.fontawesome.com/5468db3c8c.js'></script>
+    <!--script src='/jquery.min.js'></script-->
+    <!--script src='https://cdn.jsdelivr.net/npm/sweetalert2@9'></script-->
+    <!--link href='/anim-text-flow-keys.css' rel='stylesheet'/-->
+    <link href='img/DSC_0000049.png' rel='icon' type='' />
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body onclick='playAudioOnce()' class="hide-scrollbar">
+    <!--Loading-->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <div id='loading'><noscript>javascript không đc hỗ trợ hoặc bạn đã tắt, hãy bật nó lên hoặc sử dụng trình duyện như
+            Google chrome, Microsoft edge, Coc Coc,...</noscript>
+        <center>
+            <div class='I'>
+                <div class='lds-ripple'>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </center>
+    </div>
+
+    <!--FPS-->
+    <a style='color:red; font-family: monospace;'>
+        <tc>HOANGLONGRYU.BLOGSPOT.COM <span id='fps'>00.0</span> FPS</tc>
+    </a>
+    <button class='musicButton' onclick='toggleAudio(event)'></button>
+    <br />
+    <center>
+        <br />
+        <div class='content'>
+            <div class='header'>
+                <!--Avt-->
+                <img class='avatar' onmouseover='playSound()' src='img/imfine.jpg' title='hoanglongryu' width='100' />
+            </div>
+            <h3>HoangLong</h3>
+            <!--h4 class='text anim-text-flow'></h4-->
+            <h5>what i'm waiting for ?</h5>
+        </div>
+        <!--FB-->
+        <div>
+            <button class='button' onclick='openInNewTab("https://www.facebook.com/hoanglongryu");' title='Facebook'>
+                <font color='white' size='5'><i class='fab fa-facebook'></i> Facebook</font><br />
+            </button>
+        </div>
+        <!--Mess-->
+        <div>
+            <button class='button' onclick='openInNewTab("https://www.messenger.com/t/100045808422935/");'
+                title='Messenger'>
+                <font color='white' size='5'><i class='fab fa-facebook-messenger'></i> Messenger </font><br />
+            </button>
+        </div>
+        <!--Zalo-->
+        <div>
+            <button class='button' onclick='openInNewTab("https://linkfilex.blogspot.com/2022/12/zalo.html");'
+                title='Zalo'>
+                <font color='white' size='5'><img alt='icon_zalo(vn)' style="color:white"
+                        src='svg/icons8-zalo-23.svg' /> Zalo </font><br />
+            </button>
+        </div>
+        <script src='https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js'></script>
+        <!--Tiktok-->
+        <div>
+            <button class='button' onclick='openInNewTab("https://linkfilex.blogspot.com/2022/12/tiktok.html");'
+                title='Tiktok'>
+                <font color='white' size='5'><i class='fa-brands fa-tiktok'></i> Tiktok </font><br />
+            </button>
+        </div>
+    </center>
+    <!--Chay hinh-->
+    <!--marquee behavior='scroll' direction='left' scrollamount='2' scrolldelay='20' width='98%'>
+        <font color='#ffffff' face='Tahoma' size='0.1'><img class='obito' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijxnSiQM65YnDouJ2l6lRYKhmuU76-fb48Qn591bITMilWJyLtxfNPQMUk7r33z2gsfHz3c2fciXL5sUgZdNO34-Bx_u-FwM4LO1Rd3Yia3xoi2Wr3mMyqmWj_KeUe1Gu9ohg_MNU2jt7ewPIGPbCjgd4Ho70j66dm09oFuoehGCVyucpt_tpgvV0wVTo/s576/anhgiucgiuc.gif' title='kamui' width='50'/>
+</font>
+</marquee--><br />
+    <font size='2'>
+        <center>
+            <text>
+                <div id='time'></div>
+            </text>
+        </center>
+    </font>
+    <!--Hop thong bao-->
+    <div id="myModal" class="modal">
+        <div class="modal-content" id="modal-content2">
+            <img src="img/000.png" alt="" style="width:90%;border-radius: 5%; max-width: 65%; max-height: 65%;"><br>
+            <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Welcome</h2>
+            <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"></p>
+            <button class="close" id="close2">OK</button>
+        </div>
+    </div>
+    <!--script-->
+    <script src="scripts.js"></script>
+    <!--phao-->
+    <script src='jscss.effect/phaohoaclick.js'></script>
+    <!--timenow-->
+    <span id='time'>
+        <!--adu-->
+        <!--audio id='mySound' src='audio/atdu.mp3'-->
+        <!--.-->
+</body>
+
+</html>
