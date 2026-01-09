@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing Tags -->
+    <meta name="description" content="Portfolio cá nhân của Trần Hoàng Long - Web Developer & Coder.">
+    <meta property="og:title" content="Personal Portfolio - Trần Hoàng Long">
+    <meta property="og:description" content="Chào mừng đến với trang cá nhân của tôi. Nơi lưu giữ các dự án và kỹ năng lập trình.">
+    <meta property="og:image" content="">
+    <link rel="icon" href="img/icon-web.png" type="image/x-icon"> <!-- Icon tạm thời (hình code) -->
+
+    <title>Personal Portfolio - Trần Hoàng Long</title>
+    <style>
+        @import url(styles.css);
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/lelinh014756/fui-toast-js@master/assets/css/toast@1.0.1/fuiToast.min.css">
+</head>
+
+<body>
+    <div id="fui-toast"></div>
+    <header>
+        <nav>
+            <h3>Trần Hoàng Long</h3>
+
+            <ul class="nav-tabs">
+                <li class="active" data-target="about">About</li>
+                <li data-target="skills">Skills</li>
+                <li data-target="project">Project</li>
+                <li data-target="contact">Contact</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Trần Hoàng Long</h2>
+            <span class="profession">-</span>
+            <p>Age: <span class="age">0</span></p>
+            <p>Location: <span class="location">Dong Nai, Viet Nam</span></p>
+            <p>Mail: <span class="mail">longred101@gmail.com</span></p>
+            <p>Phone: <span>+84 384 760 734</span></p>
+            <div class="social-media-platform">
+                <a href="https://www.facebook.com/hoanglongryu/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/hoanglongryu/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="http://github.com/0hoanglong/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <!-- <a href="#" class="btn-cv">
+                Download CV <i class="fas fa-download"></i>
+            </a> -->
+            <a onclick="FuiToast.info('Hiện tại chưa có CV để tải.', { className: 'dark-mode' })" class="btn-cv">
+                Download CV <i class="fas fa-download"></i>
+            </a>
+
+        </div>
+        <section>
+            <div class="About active" id="about">
+                <p>Chào bạn! Tôi là học sinh lớp 12 tại trường THPT Phú Ngọc. Niềm đam mê lập trình của tôi bắt đầu từ năm lớp 7 và lớn dần theo từng dòng code.</p>
+                <br>
+                <p>
+                    Tôi tự nhận thấy mình là người có tư duy logic nhạy bén, thích tìm tòi và giải quyết các bài toán khó. 
+                    Có thể tôi không quá khéo léo trong lời nói hay thể hiện cảm xúc, nhưng tôi luôn dồn hết tâm huyết và sự tỉ mỉ vào từng sản phẩm mình làm ra.
+                </p>
+
+            </div>
+            <div class="Skills" id="skills">
+                <h3>My Skills</h3>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>HTML</span>
+                        <span>60%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress" style="width: 60%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>CSS</span>
+                        <span>40%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress" style="width: 40%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>JavaScript</span>
+                        <span>20%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress" style="width: 20%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>C++</span>
+                        <span>10%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress" style="width: 10%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Python</span>
+                        <span>10%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress" style="width: 10%"></div></div>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #aaa;">
+                    <i class="fas fa-robot"></i> If vibe Coding: 50% more effective with AI support.
+                </p>
+            </div>
+            <!-- Project Card -->
+            <div class="Project" id="project">
+                <h3>My Projects</h3>
+                <div class="project-grid">
+                    <!-- Project Item 1 -->
+                    <div class="project-item">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLQRCKjof0jJrp2j8_jXOeRZR3XUKGSWR2ejzYQnv_kjKwLs7IG9lHah8Q4FdqhTxJULR3L4-daum5Gt9hyBx9DzGY709Y-L21nA8SY2hU3bkhrAejftMjRzJSostsJxeCbi8kr8rCetAo3nJI7F_mhiI0ssZOHgLhUrVL_8rKQHcWOkONsJi7F2vCqjo/s1366/ScreenShot_20260109195128.jpeg" alt="Project 1">
+                        <div class="project-info">
+                            <h4>Lớp 12a5, Trường THPT Phú Ngọc</h4>
+                            <p>Website lưu giữ kỷ niệm, hình ảnh hoạt động và thông tin thành viên của tập thể lớp 12A5. Nơi kết nối bạn bè và lưu lại những khoảnh khắc thanh xuân đáng nhớ.</p>
+                            <div class="project-links">
+                                <a href="https://thptphungoc12a5.github.io/" target="_blank">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://github.com/thptphungoc12a5/thptphungoc12a5.github.io" target="_blank">GitHub <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bạn có thể copy và dán .project-item ở đây để thêm dự án khác -->
+
+                </div>
+            </div>
+
+            <div class="Contact" id="contact">
+                <input type="text" name="Full-name" id="full-name" placeholder="Your full-name">
+                <div class="row-input">
+                    <input type="email" name="email" id="email" placeholder="Your email">
+                    <input type="number" name="your-phone" id="your-phone" placeholder="Your phone">
+                </div>
+                <textarea name="message" id="message" placeholder="Your message" rows="4"></textarea>
+                <button>Send</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h5>Trần Hoàng Long</h5>
+        <span>Copyright © 2026-<span class="year-copyright">0000</span></span>
+        <a href="privacypolicy.html">Privacy Policy</a>
+    </footer>
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lelinh014756/fui-toast-js@master/assets/js/toast@1.0.1/fuiToast.min.js"></script>
+</body>
+
+</html>
