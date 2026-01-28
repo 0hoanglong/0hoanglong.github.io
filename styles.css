@@ -9,6 +9,7 @@
 
 html {
     overflow-y: scroll; /* Luôn hiện thanh cuộn dọc để cố định chiều rộng trang */
+    scroll-behavior: smooth; /* Thêm hiệu ứng cuộn mượt cho toàn trang */
 }
 
 body {
@@ -19,6 +20,18 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+/* --- Custom Text Selection Color --- */
+/* Dành cho các trình duyệt hiện đại */
+::selection {
+    background-color: #f0f0f0; /* Màu nền trắng nhạt */
+    color: #252525; /* Màu chữ đen nhạt */
+}
+/* Dành cho Firefox */
+::-moz-selection {
+    background-color: #f0f0f0;
+    color: #252525;
 }
 
 /* Header & Nav */
@@ -458,6 +471,75 @@ footer a {
     color: #4facfe;
     text-decoration: none;
     margin-left: 10px;
+}
+
+/* --- Custom Right-Click Context Menu --- */
+#context-menu {
+    position: fixed; /* Dùng fixed để menu hiển thị theo viewport */
+    opacity: 0; /* Ẩn ban đầu để tạo hiệu ứng */
+    visibility: hidden; /* Ẩn hoàn toàn, không tương tác được */
+    transform: scale(0.95); /* Hiệu ứng thu nhỏ ban đầu */
+    transform-origin: top left; /* Tâm của hiệu ứng scale, sẽ được JS điều chỉnh */
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    padding: 0; /* Bỏ padding để overflow hoạt động */
+    z-index: 1000;
+    min-width: 200px;
+    font-size: 0.9rem;
+    border: 1px solid #444;
+    transition: opacity 0.1s ease-out, transform 0.1s ease-out; /* Hiệu ứng chuyển động */
+    overflow: hidden; /* Cắt các góc thừa của phần tử con */
+}
+
+#context-menu.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+#context-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0; /* Chuyển padding vào đây */
+}
+
+#context-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e0e0e0;
+}
+
+#context-menu li:hover {
+    background-color: #4facfe;
+    color: #fff;
+}
+
+#context-menu .separator {
+    height: 1px;
+    background-color: #444;
+    margin: 5px 0;
+    padding: 0;
+    cursor: default;
+}
+
+#context-menu .separator:hover {
+    background-color: #444; /* Bỏ hiệu ứng hover cho dải phân cách */
+}
+
+/* Vô hiệu hóa tùy chọn dựa trên ngữ cảnh */
+#context-menu li.disabled {
+    color: #666;
+    cursor: not-allowed;
+}
+
+#context-menu li.disabled:hover {
+    background-color: transparent;
+    color: #666;
 }
 
 /* --- Custom Scrollbar --- */
