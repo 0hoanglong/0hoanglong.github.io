@@ -202,4 +202,78 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lắng nghe sự kiện resize và chạy lần đầu
     window.addEventListener('resize', moveNav);
     moveNav();
+
+    // 7. Custom Right-Click Context Menu
+    const contextMenu = document.getElementById('context-menu');
+    if (contextMenu) {
+        const contextSource = document.getElementById('context-source');
+        const contextReload = document.getElementById('context-reload');
+        const contextScrollTop = document.getElementById('context-scroll-top');
+
+        // Hàm điều chỉnh vị trí để menu không bị tràn ra ngoài màn hình
+        const normalizePosition = (mouseX, mouseY) => {
+            const { innerWidth: windowWidth, innerHeight: windowHeight } = window;
+            const menuWidth = contextMenu.offsetWidth;
+            const menuHeight = contextMenu.offsetHeight;
+
+            let normalizedX = mouseX;
+            let normalizedY = mouseY;
+
+            if (mouseX + menuWidth > windowWidth) {
+                normalizedX = windowWidth - menuWidth - 5;
+            }
+
+            if (mouseY + menuHeight > windowHeight) {
+                normalizedY = windowHeight - menuHeight - 5;
+            }
+
+            return { normalizedX, normalizedY };
+        };
+
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+
+            // Vô hiệu hóa nút "Cuộn lên đầu" nếu đang ở trên cùng
+            const isAtTop = window.scrollY === 0;
+            isAtTop ? contextScrollTop.classList.add('disabled') : contextScrollTop.classList.remove('disabled');
+
+            const { clientX: mouseX, clientY: mouseY } = e;
+            
+            const { normalizedX, normalizedY } = normalizePosition(mouseX, mouseY);
+
+            // Đặt vị trí và tâm hiệu ứng trước khi hiển thị
+            contextMenu.style.top = `${normalizedY}px`;
+            contextMenu.style.left = `${normalizedX}px`;
+            // Đặt tâm hiệu ứng ngay tại vị trí con trỏ chuột để menu phóng to ra từ đó
+            contextMenu.style.transformOrigin = `${mouseX - normalizedX}px ${mouseY - normalizedY}px`;
+
+            contextMenu.classList.add('visible'); // Thêm class để hiển thị với hiệu ứng
+        });
+
+        // Ẩn menu khi click chuột trái
+        document.addEventListener('click', () => {
+            contextMenu.classList.remove('visible');
+        });
+
+        contextSource.addEventListener('click', () => {
+            // Giao thức 'view-source:' không đáng tin cậy và bị nhiều trình duyệt chặn.
+            // Thay đổi để mở trực tiếp file mã nguồn trên GitHub.
+            window.open('https://github.com/0hoanglong/0hoanglong.github.io/blob/main/index.html', '_blank');
+        });
+
+        contextReload.addEventListener('click', () => {
+            // Tải lại trang
+            window.location.reload();
+        });
+
+        contextScrollTop.addEventListener('click', () => {
+            // Cuộn lên đầu trang với hiệu ứng mượt
+            if (!contextScrollTop.classList.contains('disabled')) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
 });
