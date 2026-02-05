@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>In Danh Thiếp VS Code</title>
+    <style>
+        :root {
+            --bg-dark: #1e1e1e;
+            --sidebar-bg: #252526;
+            --titlebar-bg: #323233;
+            --text-color: #d4d4d4;
+            --blue: #007acc;
+            --comment: #6a9955;
+            --keyword: #569cd6;
+            --string: #ce9178;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        /* Container cho việc in ấn */
+        .print-container {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        /* Kích thước chuẩn danh thiếp: 85mm x 55mm */
+        .card {
+            width: 85mm;
+            height: 55mm;
+            background: var(--bg-dark);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            border: 0.1mm solid #ccc; /* Đường cắt mờ */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- MẶT TRƯỚC (VS CODE) --- */
+        .title-bar {
+            background: var(--titlebar-bg);
+            height: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8px;
+            color: #ccc;
+            font-size: 9px;
+        }
+        .window-controls { display: flex; gap: 8px; font-size: 12px; }
+
+        .main-content { display: flex; flex-grow: 1; overflow: hidden; }
+
+        .sidebar {
+            width: 85px;
+            background: var(--sidebar-bg);
+            border-right: 0.5px solid #333;
+            padding: 10px 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .qr-code {
+            width: 65px;
+            height: 65px;
+            background: white;
+            padding: 3px;
+            margin-bottom: 10px;
+        }
+        .qr-code img { width: 100%; height: 100%; }
+        .file-list { font-size: 8px; color: #858585; width: 100%; }
+        .file-item { padding: 2px 5px; }
+        .file-item.active { color: white; border-left: 2px solid var(--blue); background: #37373d; }
+
+        .editor {
+            flex-grow: 1;
+            padding: 12px;
+            font-family: 'Consolas', monospace;
+            font-size: 9.5px;
+            line-height: 1.4;
+            color: var(--text-color);
+        }
+        .keyword { color: var(--keyword); }
+        .string { color: var(--string); }
+        .comment { color: var(--comment); }
+
+        .status-bar {
+            background: var(--blue);
+            height: 15px;
+            color: white;
+            font-size: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        /* --- MẶT SAU (WINDOWS LOGO) --- */
+        .card-back {
+            background-color: #007acc;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .card-back::before {
+            content: "";
+            position: absolute;
+            width: 200%; height: 200%;
+            background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 15px 15px;
+            transform: rotate(15deg);
+        }
+        .logo-windows {
+            width: 50px; height: 50px;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4px; margin-bottom: 15px; z-index: 1;
+        }
+        .logo-square { background: white; }
+        .site-name { font-size: 18px; font-weight: 300; letter-spacing: 2px; z-index: 1; }
+        .tagline { font-family: 'Consolas', monospace; font-size: 10px; margin-top: 8px; opacity: 0.9; z-index: 1; }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .card { box-shadow: none; page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="print-container">
+    
+    <div>
+        <p style="font-size: 12px; color: #666;">Mặt trước (VS Code Style)</p>
+        <div class="card">
+            <div class="title-bar">
+                <span>profile.js - Visual Studio Code</span>
+                <div class="window-controls"><span>−</span> <span>□</span> <span>×</span></div>
+            </div>
+            <div class="main-content">
+                <div class="sidebar">
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hoanglongryu.blogspot.com/" alt="QR">
+                    </div>
+                    <div class="file-list">
+                        <div class="file-item">index.html</div>
+                        <div class="file-item active">profile.js</div>
+                        <div class="file-item">contact.css</div>
+                    </div>
+                </div>
+                <div class="editor">
+                    <div class="comment">// Contact Info</div>
+                    <div><span class="keyword">const</span> <span style="color: #9cdcfe;">Me</span> = {</div>
+                    <div style="padding-left: 10px;">
+                        Name: <span class="string">"Trần Hoàng Long"</span>,<br>
+                        Born: <span style="color: #b5cea8;">2007</span>,<br>
+                        City: <span class="string">"Đồng Nai"</span>,<br>
+                        Email: <span class="string">"longred101@gmail.com"</span>,<br>
+                        Phone: <span class="string">"+84 384 760 734"</span>,<br>
+                        Website: <span class="string">"0hoanglong.zone.id"</span>
+                    </div>
+                    <div>};</div>
+                </div>
+            </div>
+            <div class="status-bar">
+                <div>main*</div>
+                <div>Row 9, Column 3 | UTF-8 | JavaScript</div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <p style="font-size: 12px; color: #666;">Mặt sau (Windows Style)</p>
+        <div class="card card-back">
+            <div class="logo-windows">
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+            </div>
+            <div class="site-name">Trần Hoàng Long</div>
+            <div class="tagline">System.load("Personal_Portfolio");</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
