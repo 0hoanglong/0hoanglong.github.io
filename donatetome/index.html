@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán MoMo - Donate</title>
+    <meta name="description" content="Quét mã QR để ủng hộ tôi qua ví MoMo">
+    <!-- Font chữ hiện đại -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- SweetAlert2 Dark Theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.css">
+</head>
+
+<body>
+
+    <div class="mouse-glow" id="mouseGlow"></div>
+
+    <!-- Xóa data-tilt để điều khiển việc khởi tạo bằng JavaScript -->
+    <main class="card">
+        <h2>TRẦN HOÀNG LONG</h2>
+        <div class="recipient-phone">*******734</div>
+        
+        <div class="qr-box">
+            <!-- Thay bằng link ảnh QR của bạn -->
+            <img src="img/qrmomo.jpg" alt="Mã QR Thanh Toán MoMo">
+        </div>
+
+        <div class="marquee-container">
+            <div class="marquee-text">
+                Cảm ơn sự ủng hộ của bạn. Mỗi đóng góp dù nhỏ bé nhưng giúp mình tiếp thêm động lực để trang trải cuộc sống và theo đuổi đam mê.
+            </div>
+        </div>
+
+        <p>Quét QR trên máy tính hoặc nhấn nút để mở ứng dụng MoMo</p>
+
+        <button class="btn-momo" onclick="handlePayment()" aria-label="Mở ứng dụng MoMo để chuyển khoản">
+            MỞ ỨNG DỤNG MOMO
+        </button>
+    </main>
+
+    <!-- 3. Thư viện ngoài: Vanilla Tilt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

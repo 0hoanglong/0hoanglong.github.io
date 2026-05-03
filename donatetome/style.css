@@ -1,0 +1,145 @@
+        :root {
+            --momo-pink: #d82d8b;
+            --momo-dark: #A50064;
+            --card-bg: rgba(255, 255, 255, 0.03);
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow: hidden;
+        }
+
+        /* 1. Hiệu ứng bóng sáng xung quanh chuột (Mouse Glow) */
+        .mouse-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(216, 45, 139, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            top: 0;
+            left: 0;
+            transform: translate3d(-50%, -50%, 0);
+            z-index: 0;
+            will-change: transform;
+        }
+
+        /* 2. Thiết kế Card 3D */
+        .card {
+            position: relative;
+            width: 340px;
+            padding: 40px 30px;
+            background: var(--card-bg);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            text-align: center;
+            overflow: hidden;
+            z-index: 1;
+            transform-style: preserve-3d; /* Quan trọng để hiệu ứng nổi 3D hoạt động */
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.3s ease;
+        }
+
+        .qr-box {
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 25px;
+            transform: translateZ(50px); /* Đẩy QR nổi hẳn lên */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .qr-box img {
+            width: 180px;
+            height: 180px;
+            display: block;
+        }
+
+        h2 {
+            color: white;
+            font-size: 22px;
+            margin: 5px 0 0 0;
+            transform: translateZ(30px);
+        }
+
+        .recipient-phone {
+            color: var(--momo-pink);
+            font-size: 18px;
+            font-weight: 700;
+            margin: 5px 0 25px 0;
+            transform: translateZ(25px);
+        }
+
+        /* 3. Hiệu ứng chữ chạy (Marquee) */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            background: rgba(216, 45, 139, 0.08);
+            padding: 10px 0;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transform: translateZ(20px);
+            border: 1px solid rgba(216, 45, 139, 0.1);
+        }
+
+        .marquee-text {
+            display: inline-block;
+            color: #ececec;
+            font-size: 13.5px;
+            font-weight: 500;
+            animation: marquee 15s linear infinite;
+            animation-delay: -3s; /* Nhảy trước 3 giây để dòng chữ hiện ra ngay khi load trang */
+            will-change: transform;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(100%, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        p {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 25px;
+            transform: translateZ(20px);
+        }
+
+        .btn-momo {
+            background: linear-gradient(90deg, var(--momo-dark), var(--momo-pink));
+            color: white;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+            transform: translateZ(40px);
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(165, 0, 100, 0.3);
+        }
+
+        .btn-momo:hover {
+            box-shadow: 0 15px 30px rgba(216, 45, 139, 0.5);
+            transform: translateZ(60px) scale(1.02);
+        }
+
+        /* Vô hiệu hóa hiệu ứng trên Mobile và máy tính bảng */
+        @media (max-width: 768px), (pointer: coarse) {
+            .mouse-glow {
+                display: none;
+            }
+            .card, .qr-box, h2, p, .btn-momo, .recipient-phone, .marquee-container {
+                transform: none !important;
+            }
+        }
