@@ -59,7 +59,13 @@ nav h3 {
 .nav-tabs {
     list-style: none;
     display: flex;
+    flex-wrap: wrap; /* Cho phép các mục tự xuống hàng nếu thiếu chỗ */
     gap: 20px;
+}
+
+.nav-tabs li a {
+    color: inherit; /* Kế thừa màu từ li */
+    text-decoration: none; /* Bỏ gạch chân */
 }
 
 .nav-tabs li {
@@ -106,7 +112,7 @@ main {
     }
 
     .nav-tabs {
-        gap: 25px; /* Tăng khoảng cách giữa các mục menu để dễ bấm */
+        gap: 15px; /* Giảm gap để chứa đủ 5 tab trên một hàng ở mobile */
         font-size: 1rem;
     }
 }
@@ -124,6 +130,7 @@ main .nav-tabs {
     position: sticky;
     top: 20px; /* Dính cách mép trên 20px cho thoáng */
     z-index: 100; /* Nổi lên trên nội dung */
+    row-gap: 10px; /* Khoảng cách giữa các hàng nếu bị xuống dòng */
 }
 
 /* Responsive: Mobile nhỏ (Dưới 600px) */
@@ -147,6 +154,11 @@ main .nav-tabs {
     /* Font chữ tiêu đề nhỏ lại một chút cho cân đối */
     nav h3 {
         font-size: 1.3rem;
+    }
+
+    .nav-tabs {
+        gap: 12px; /* Thu hẹp thêm một chút trên màn hình cực nhỏ */
+        font-size: 0.9rem; /* Giảm nhẹ cỡ chữ để menu trông gọn hơn */
     }
     
     .container h2 {
@@ -192,14 +204,21 @@ main .nav-tabs {
 
 .container p {
     margin-bottom: 10px;
-    text-align: left;
     border-bottom: 1px solid #444;
     padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between; /* Đẩy nội dung sang hai bên (key và value) */
+    align-items: flex-start; /* Căn lề trên để đẹp hơn khi nội dung xuống dòng */
+    flex-wrap: wrap; /* Cho phép xuống dòng nếu nội dung (như email) quá dài */
+    gap: 5px;
 }
 
 .container p span {
     color: #aaa;
-    float: right;
+    flex: 1; /* Chiếm không gian còn lại */
+    text-align: right; /* Luôn ép nội dung về bên phải */
+    word-break: break-all; /* Bẻ đôi chuỗi dài (như email) để không tràn khung */
+    margin-left: 10px; /* Thêm khoảng cách nhỏ giữa key và value */
 }
 
 .social-media-platform {
@@ -266,12 +285,12 @@ section {
 }
 
 /* Logic ẩn hiện Card */
-.About, .Skills, .Contact, .Project {
+.About, .Skills, .Contact, .Project, .Donate {
     display: none; /* Ẩn tất cả mặc định */
     animation: fadeIn 0.5s ease;
 }
 
-.About.active, .Skills.active, .Project.active {
+.About.active, .Skills.active, .Project.active, .Donate.active {
     display: block; /* Hiện card active */
 }
 
@@ -456,6 +475,78 @@ section {
 .Contact button:hover {
     background-color: #00f2fe;
     color: #252525;
+}
+
+/* Donate Card Styles */
+.Donate h3 {
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.donate-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.recipient-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipient-info .name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #4facfe;
+}
+
+.recipient-info .phone {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.qr-container {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    width: 180px;
+    height: 180px;
+}
+
+.qr-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.marquee-box {
+    background: #2a2a2a;
+    padding: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+.btn-momo-main {
+    width: 100%;
+    padding: 12px;
+    background-color: #a50064; /* Màu đặc trưng MoMo */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-momo-main:hover {
+    background-color: #d82d8b;
 }
 
 /* Footer */

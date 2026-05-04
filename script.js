@@ -126,11 +126,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Chuyển đổi Tab (Card)
     const navItems = document.querySelectorAll('.nav-tabs li');
-    const cards = document.querySelectorAll('.About, .Skills, .Project, .Contact');
+    const cards = document.querySelectorAll('.About, .Skills, .Project, .Contact, .Donate');
 
     navItems.forEach(item => {
         item.addEventListener('click', () => {
-            // Xóa active ở tất cả menu và card
+            const targetId = item.getAttribute('data-target');
+
+            // KIỂM TRA: Nếu là PC (rộng > 870px) và bấm vào Donate -> Chuyển sang trang riêng
+            if (targetId === 'donate' && window.innerWidth > 870) {
+                window.location.href = 'donatetome';
+                return;
+            }
+
+            // Logic chuyển tab bình thường (cho mobile hoặc các tab khác)
             navItems.forEach(nav => nav.classList.remove('active'));
             cards.forEach(card => card.classList.remove('active'));
 
@@ -138,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.add('active');
 
             // Lấy id mục tiêu từ data-target và hiển thị card tương ứng
-            const targetId = item.getAttribute('data-target');
             const targetCard = document.getElementById(targetId);
             if (targetCard) {
                 targetCard.classList.add('active');

@@ -15,13 +15,20 @@ Chào mừng đến với mã nguồn trang Portfolio cá nhân của tôi. Đâ
 - **Responsive Design:** Tương thích hoàn toàn trên mọi thiết bị (Desktop, Tablet, Mobile).
 - **Hiệu ứng mượt mà:**
   - Typing Effect (Hiệu ứng gõ chữ) cho phần giới thiệu nghề nghiệp.
-  - Chuyển tab (About, Skills, Project, Contact) không cần tải lại trang.
+  - Chuyển tab (About, Skills, Project, Contact, Donate) không cần tải lại trang.
   - Sticky Menu trên giao diện Mobile.
+- **Tính năng Donate linh hoạt:**
+  - Tích hợp thẻ Donate trực tiếp vào trang chính trên thiết bị di động để trải nghiệm liền mạch.
+  - Chuyển hướng sang trang Donate riêng biệt với hiệu ứng 3D (Vanilla Tilt, Mouse Glow) trên máy tính.
+  - Nút "Quay lại" với hiệu ứng Glassmorphism trên trang Donate riêng.
+  - Ẩn số điện thoại trên thẻ Donate để tăng cường bảo mật.
 - **Form liên hệ thông minh:**
   - Tích hợp **Google Apps Script** để lưu dữ liệu trực tiếp vào Google Sheets (Serverless).
+  - Bố cục thông tin cá nhân (Age, Location, Mail, Phone) được tối ưu hóa bằng Flexbox, tự động xuống dòng và ngắt từ (word-break) cho nội dung dài (như email) để tránh tràn khung.
   - Validate dữ liệu đầu vào (Email, Số điện thoại VN) bằng Regex.
   - Hiệu ứng rung lắc và báo đỏ khi nhập sai thông tin.
   - Thông báo trạng thái (Toast Notification) sử dụng thư viện `FuiToast`.
+
 
 ## 🛠️ Công nghệ sử dụng
 
@@ -30,6 +37,8 @@ Chào mừng đến với mã nguồn trang Portfolio cá nhân của tôi. Đâ
   - FontAwesome (Icons).
   - Google Fonts (Font Poppins).
   - FuiToast (Thông báo).
+  - Vanilla Tilt (Hiệu ứng 3D cho thẻ Donate).
+  - SweetAlert2 (Thông báo tùy chỉnh trên trang Donate).
 - **Backend (Contact Form):** Google Apps Script & Google Sheets.
 
 ## 🚀 Cài đặt và Sử dụng
@@ -65,6 +74,11 @@ Dự án này sử dụng Google Sheets làm cơ sở dữ liệu. Để form ho
 ├── privacypolicy.html  # Trang chính sách bảo mật
 ├── styles.css          # Định dạng giao diện
 ├── script.js           # Logic xử lý (Tabs, Form, Typing effect)
+├── donatetome/         # Thư mục chứa trang Donate riêng biệt
+│   ├── index.html      # Trang Donate chính
+│   ├── style.css       # CSS cho trang Donate
+│   ├── script.js       # JS cho trang Donate (hiệu ứng, logic MoMo)
+│   └── img/            # Chứa ảnh QR MoMo
 └── README.md           # Tài liệu dự án
 ```
 
@@ -89,3 +103,6 @@ furnished to do so, subject to the following conditions:
 ---
 
 Made with ❤️ by **Trần Hoàng Long**
+
+
+nói thật là toàn dùng AI để code koo à 😄
