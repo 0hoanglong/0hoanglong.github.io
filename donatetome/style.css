@@ -142,6 +142,9 @@
             .card, .qr-box, h2, p, .btn-momo, .recipient-phone, .marquee-container {
                 transform: none !important;
             }
+            .btn-back {
+                display: none; /* Ẩn nút quay lại trên mobile và tablet */
+            }
         }
 
                 .btn-back {
