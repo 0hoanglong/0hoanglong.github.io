@@ -86,7 +86,7 @@ I consider myself a person with sharp logical thinking skills and enjoy finding 
                         <div class="radio-card is-paused" id="playerContainer">
 
                             <!-- Ảnh nền Lofi Girl -->
-                            <img class="https://0hoanglong.zone.id/portfolio-long-v20-spa-new/img/bg-gif" src="img/lofibg.gif"
+                            <img class="bg-gif" src="https://0hoanglong.zone.id/portfolio-long-v20-spa-new/img/lofibg.gif"
                                 alt="Lofi Boy Working GIF" draggable="false">
 
                             <!-- Lớp phủ bóng tối ở đáy -->
