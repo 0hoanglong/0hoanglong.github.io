@@ -4,12 +4,12 @@ import './index.js';
 // Bước 2: Sau khi có HTML, tiến hành nạp CSS để trình duyệt render giao diện
 const linkCss = document.createElement('link');
 linkCss.rel = 'stylesheet';
-linkCss.href = './style.css'; // Đường dẫn file CSS của bạn
+linkCss.href = 'https://0hoanglong.zone.id/portfolio-long-v20-spa-new/style.css'; // Đường dẫn file CSS của bạn
 document.head.appendChild(linkCss);
 
 // Bước 3: Nạp file xử lý hiệu ứng tính năng chính (script.js)
 const scriptMain = document.createElement('script');
-scriptMain.src = './script.js';
+scriptMain.src = 'https://0hoanglong.zone.id/portfolio-long-v20-spa-new/script.js';
 scriptMain.defer = true;
 document.body.appendChild(scriptMain);
 
