@@ -1,5 +1,5 @@
 // Bước 1: Gọi index.js để dựng toàn bộ HTML vào #root trước
-import './index.js'; 
+import 'https://0hoanglong.zone.id/portfolio-long-v20-spa-new/index.js'; 
 
 // Bước 2: Sau khi có HTML, tiến hành nạp CSS để trình duyệt render giao diện
 const linkCss = document.createElement('link');
