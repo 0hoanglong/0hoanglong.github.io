@@ -6,7 +6,7 @@
     // NGƯỢC LẠI: Nếu KHÔNG PHẢI mobile VÀ màn hình LỚN HƠN 768px (tức là PC)
     if (!isMobileDevice && !isSmallWidth) {
         // Chuyển hướng sang link web mới dành cho PC
-        window.location.href = "https://tenmiendemoi-pc.com";
+        window.location.href = "https://hoanglongryu.gamer.gd";
     }
 
 document.addEventListener('DOMContentLoaded', () => {
