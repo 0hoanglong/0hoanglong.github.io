@@ -512,7 +512,11 @@ if (contactForm) {
     function showNotification(type, message) {
         if (!notificationContainer) return;
         const className = type === 'success' ? 'form-notice success' : 'form-notice error';
-        notificationContainer.innerHTML = `<div class="${className}">${message}</div>`;
+        notificationContainer.innerHTML = '';
+        const notice = document.createElement('div');
+        notice.className = className;
+        notice.textContent = message;
+        notificationContainer.appendChild(notice);
     }
 
     function updateCooldownUI() {
