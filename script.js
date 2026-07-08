@@ -1,4 +1,14 @@
 
+    // Kiểm tra xem ĐÂY CÓ PHẢI là thiết bị di động hay không
+    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isSmallWidth = window.innerWidth <= 768;
+
+    // NGƯỢC LẠI: Nếu KHÔNG PHẢI mobile VÀ màn hình LỚN HƠN 768px (tức là PC)
+    if (!isMobileDevice && !isSmallWidth) {
+        // Chuyển hướng sang link web mới dành cho PC
+        window.location.href = "https://tenmiendemoi-pc.com";
+    }
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Tính tuổi tự động
     const birthYear = 2007; // Giả định năm sinh dựa trên thông tin lớp 12
