@@ -399,6 +399,7 @@ if (contactForm) {
     const infoMessage = contactForm.querySelector('.form-info');
     const countdownEl = contactForm.querySelector('#countdown');
     const submitButton = contactForm.querySelector('button[type="submit"]');
+    const notificationContainer = contactForm.querySelector('.notificationHtml');
     const draftKey = 'contact-form-draft';
     const lastSentKey = 'contact-form-last-sent';
     const cooldownSeconds = 180;
@@ -500,6 +501,18 @@ if (contactForm) {
         if (infoMessage) {
             infoMessage.classList.remove('visible');
         }
+    }
+
+    function clearNotification() {
+        if (notificationContainer) {
+            notificationContainer.innerHTML = '';
+        }
+    }
+
+    function showNotification(type, message) {
+        if (!notificationContainer) return;
+        const className = type === 'success' ? 'form-notice success' : 'form-notice error';
+        notificationContainer.innerHTML = `<div class="${className}">${message}</div>`;
     }
 
     function updateCooldownUI() {
@@ -628,9 +641,10 @@ if (contactForm) {
         });
     });
 
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         clearValidationState();
+        clearNotification();
 
         if (!validateForm()) {
             return;
@@ -641,13 +655,47 @@ if (contactForm) {
 
         if (lastSentAt && now - lastSentAt < cooldownSeconds * 1000) {
             updateCooldownUI();
+            showNotification('error', 'Bạn phải chờ hết 3 phút trước khi gửi lại.');
             return;
         }
 
-        localStorage.setItem(lastSentKey, String(now));
-        clearDraft();
-        contactForm.reset();
-        updateCooldownUI();
+        if (submitButton) {
+            submitButton.disabled = true;
+        }
+
+        const formData = new FormData(contactForm);
+
+        try {
+            const response = await fetch(window.location.pathname || './', {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                showNotification('success', data.message || 'Gửi thành công');
+                localStorage.setItem(lastSentKey, String(Date.now()));
+                clearDraft();
+                contactForm.reset();
+                updateContactLayout(null);
+                updateCooldownUI();
+            } else {
+                showNotification('error', data.message || 'Gửi thất bại');
+                if (submitButton) {
+                    submitButton.disabled = false;
+                }
+            }
+        } catch (error) {
+            showNotification('error', 'Lỗi kết nối. Vui lòng thử lại.');
+            if (submitButton) {
+                submitButton.disabled = false;
+            }
+        }
     });
 }
 
