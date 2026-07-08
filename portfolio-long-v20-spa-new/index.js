@@ -1,5 +1,4 @@
 const root = document.getElementById('root');
-const notificationHtml = window.contactNotification || '';
 
 const layoutHtml = `
     <!-- Stars Background -->
