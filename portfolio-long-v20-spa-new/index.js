@@ -1,4 +1,5 @@
 const root = document.getElementById('root');
+const notificationHtml = window.contactNotification || '';
 
 const layoutHtml = `
     <!-- Stars Background -->
@@ -36,7 +37,7 @@ const layoutHtml = `
         <div id="about" class="portfolio-section">
             <div class="container-left about-left">
                 <div class="profile-header">
-                    <img src="https://0hoanglong.zone.id/portfolio-long-v20-spa-new/avt.jpg" draggable="false" alt="Profile Picture">
+                    <img src="avt.jpg" draggable="false" alt="Profile Picture">
                     <div>
                         <p class="about-badge">Frontend Developer</p>
                         <h2>Trần Hoàng Long</h2>
@@ -86,7 +87,7 @@ I consider myself a person with sharp logical thinking skills and enjoy finding 
                         <div class="radio-card is-paused" id="playerContainer">
 
                             <!-- Ảnh nền Lofi Girl -->
-                            <img class="bg-gif" src="https://0hoanglong.zone.id/portfolio-long-v20-spa-new/img/lofibg.gif"
+                            <img class="bg-gif" src="img/lofibg.gif"
                                 alt="Lofi Boy Working GIF" draggable="false">
 
                             <!-- Lớp phủ bóng tối ở đáy -->
@@ -332,6 +333,7 @@ I consider myself a person with sharp logical thinking skills and enjoy finding 
                 </div>
                 <div class="contact-form-block container-right">
                     <form class="contact-form" method="post" action="">
+                        <div class="notificationHtml"></div>
                         <div class="contact-row">
                             <input type="text" name="name" placeholder="Your Name" required>
                         </div>
