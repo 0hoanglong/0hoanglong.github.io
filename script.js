@@ -1,4 +1,5 @@
 
+window.location.href = "https://0hoanglong.vercel.app/";
     // Kiểm tra xem ĐÂY CÓ PHẢI là thiết bị di động hay không
     const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     const isSmallWidth = window.innerWidth <= 768;
